@@ -1,9 +1,0 @@
-{% extends "base.html" %}{% block content %}
-<div class="page-title"><div><p class="eyebrow">تنظيم الزيارات</p><h1>✏️ تعديل الموعد</h1><p>عدّل بيانات الموعد ثم احفظ التغييرات.</p></div><a class="btn secondary" href="{{ url_for('appointments') }}">رجوع للمواعيد</a></div>
-<section class="panel"><form method="post" class="form"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-<label>اسم المريض *<input name="patient_name" list="patientlist" required value="{{ appointment.patient_name }}"></label><datalist id="patientlist">{% for p in patients %}<option value="{{ p.name }}">{% endfor %}</datalist>
-<div class="form-row"><label>التاريخ *<input type="date" name="appt_date" required value="{{ appointment.appt_date }}"></label><label>الوقت<input type="time" name="appt_time" value="{{ appointment.appt_time or '' }}"></label></div>
-<label>سبب الزيارة<input name="reason" value="{{ appointment.reason or '' }}" placeholder="كشف، حشو، تنظيف..."></label>
-<label>حالة الموعد<select name="status">{% for st in ['محجوز','حضر','لم يحضر','ملغي'] %}<option value="{{ st }}" {% if appointment.status==st %}selected{% endif %}>{{ st }}</option>{% endfor %}</select></label>
-<div class="actions"><button class="btn" type="submit">حفظ التعديلات</button><a class="btn secondary" href="{{ url_for('appointments') }}">إلغاء</a></div>
-</form></section>{% endblock %}

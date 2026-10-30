@@ -1,8 +1,0 @@
-{% extends "base.html" %}{% block content %}
-<div class="page-title"><div><p class="eyebrow">ملفات المرضى</p><h1>✏️ تعديل بيانات المريض</h1><p>تعديل البيانات يحفظ على نفس ملف المريض.</p></div><a class="btn secondary" href="{{ url_for('patients') }}">رجوع للمرضى</a></div>
-<section class="panel"><form method="post" class="form" autocomplete="on"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-<label>اسم المريض *<input name="name" required value="{{ patient.name }}" placeholder="الاسم بالكامل"></label>
-<div class="form-row"><label>رقم الهاتف<input name="phone" value="{{ patient.phone or '' }}"></label><label>العمر<input name="age" value="{{ patient.age or '' }}"></label></div>
-{% if can('patients.notes') %}<label>ملاحظات أولية<textarea name="notes" rows="4">{{ patient.notes or '' }}</textarea></label>{% endif %}
-<div class="actions"><button class="btn" type="submit">حفظ التعديلات</button><a class="btn secondary" href="{{ url_for('patients') }}">إلغاء</a></div>
-</form></section>{% endblock %}

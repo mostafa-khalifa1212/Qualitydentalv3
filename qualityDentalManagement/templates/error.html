@@ -1,3 +1,0 @@
-{% extends "base.html" %}{% block content %}
-<section class="auth-wrap"><div class="panel auth-card"><div class="auth-logo">{{ '🔒' if code == 403 else '⚠️' }}</div><p class="eyebrow">خطأ {{ code }}</p><h1>{{ title }}</h1><p class="muted">{{ message }}</p><a class="btn" href="/">العودة للرئيسية</a></div></section>
-{% endblock %}

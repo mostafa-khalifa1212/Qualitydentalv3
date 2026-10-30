@@ -1,9 +1,0 @@
-{% extends "base.html" %}{% block title %}تسجيل الدخول · Quality Dental{% endblock %}{% block content %}
-<section class="auth-wrap"><div class="panel auth-card"><div class="auth-logo">✚</div><p class="eyebrow">دخول آمن للعاملين فقط</p><h1>تسجيل الدخول</h1><p class="muted">بيانات المرضى سرية. استخدم حسابك الشخصي ولا تشارك كلمة المرور.</p>
-{% if error %}<div class="auth-error" role="alert">{{ error }}</div>{% endif %}
-<form method="post" class="form" autocomplete="on" id="login-form"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-<label>اسم المستخدم<input id="login-username" name="username" required autocomplete="username" value="{{ username or '' }}" autofocus></label>
-<label>كلمة المرور<input id="login-password" name="password" type="password" required autocomplete="current-password"></label>
-<button class="btn" id="login-submit" type="submit">دخول</button></form>
-<p class="muted auth-foot">يتم تسجيل الخروج تلقائيًا بعد فترة من عدم النشاط. بعد 5 محاولات خاطئة يُقفل الحساب مؤقتًا.</p></div></section>
-{% endblock %}
